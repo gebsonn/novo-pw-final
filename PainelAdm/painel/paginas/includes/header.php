@@ -1,17 +1,5 @@
-<!DOCTYPE HTML>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <title>Sistema</title>
-    </head>
-    <body>
-        
-        <header> Cabeçalho </header>
-        
-        
-        <!!-- testeeeeeeeeeeeeeee
-        <!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,3 +26,5 @@
         <!-- summernote -->
         <link rel="stylesheet" href="painel/plugins/summernote/summernote-bs4.min.css">
     </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
