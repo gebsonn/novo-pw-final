@@ -1,6 +1,6 @@
 <?php
 
-include_once './painel/db/conexao.php';
+include_once 'painel/bd/conexao.php';
 include_once 'painel/helper/funcoes.php';
 
 $pg = isset($_GET['pg']);
@@ -16,7 +16,6 @@ if ($pg) {
             include_once 'painel/paginas/includes/footer.php';
             break;
 
-        //inicio produtos
         case 'produtos':
             include_once 'painel/paginas/includes/header.php';
             include_once 'painel/paginas/includes/menus.php';
@@ -88,29 +87,7 @@ if ($pg) {
             include_once 'painel/paginas/includes/footer.php';
             break;
 
-        case 'produtos-excluir':
 
-            $parametros = array(
-                ':id' => $_GET['id'],
-            );
-            $resultDados = new Conexao();
-            $resultDados->intervencaoNoBanco(''
-                    . 'DELETE FROM produtos WHERE id = :id', $parametros);
-            header('Location: ?pg=produtos');
-            break;
-        
-        case 'produtos-inserir':
-            include_once 'painel/paginas/includes/header.php ' ;
-            include_once 'painel/paginas/includes/menus.php';
-            include_once 'painel/paginas/produtos-inserir.php';
-            include_once 'painel/paginas/includes/footer.php';
-            
-            break;
-        
-        //fim produtos
-
-
-        //inicio servicos
         case 'servicos':
 
             $resultDados = new Conexao();
@@ -122,84 +99,6 @@ if ($pg) {
             include_once 'painel/paginas/includes/footer.php';
             break;
 
-        case 'servicos-item':
-
-            $id = $_GET['id'];
-
-            $resultDados = new Conexao();
-            $dados = $resultDados->selecionaDados('SELECT * FROM produtos WHERE id = ' . $id);
-
-            include_once 'painel/paginas/includes/header.php';
-            include_once 'painel/paginas/includes/menus.php';
-            include_once 'painel/paginas/servicos-item.php';
-            include_once 'painel/paginas/includes/footer.php';
-            break;
-
-        case 'servicos-editar':
-            include_once 'painel/paginas/includes/header.php';
-            include_once 'painel/paginas/includes/menus.php';
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                //Função para atualização do Produto
-                //Pegando as variáveis via POST
-
-                $id = $_POST['id'];
-                $nome = $_POST['nome'];
-                $tipo = $_POST['tipo'];
-                $valor = $_POST['valor'];
-
-                //Tratando os dados enviados
-                $parametros = array(
-                    ':id' => $id,
-                    ':nome' => $nome,
-                    ':tipo' => $tipo,
-                    ':valor' => $valor
-                );
-
-                //Fazendo a atualização no banco
-                $atualizarProduto = new Conexao();
-
-                $atualizarProduto->intervencaoNoBanco(''
-                        . 'UPDATE produtos SET '
-                        . 'nome = :nome, '
-                        . 'tipo = :tipo, '
-                        . 'valor = :valor '
-                        . 'WHERE id = :id', $parametros);
-
-                include_once 'painel/paginas/';
-            } else {
-                //mostrar os dados do produto
-                $idProdutoEditar = isset($_GET['id']);
-
-                if ($idProdutoEditar) {
-
-                    $resultDados = new Conexao();
-                    $dados = $resultDados->selecionaDados('SELECT * FROM '
-                            . 'produtos WHERE id = ' . $_GET['id']);
-
-                    include_once 'painel/paginas/servicos-editar.php';
-                } else {
-                    echo 'variável não definida';
-                }
-            }
-
-            include_once 'painel/paginas/includes/footer.php';
-            break;
-
-        case 'servicos-excluir':
-
-            $parametros = array(
-                ':id' => $_GET ['id'],
-            );
-            $resultDados = new Conexao();
-            $resultDados->intervencaoNoBanco(''
-                    . 'DELETE FROM produtos WHERE id = :id', $parametros);
-            header('Location: ?pg=servicos');
-            break;
-        //fim servicos
-        
-
-        //inicio contato
         case 'contato':
 
             $resultDados = new Conexao();
@@ -224,7 +123,6 @@ if ($pg) {
             include_once 'painel/paginas/contato-visualizar.php';
             include_once 'painel/paginas/includes/footer.php';
             break;
-        //fim contato
 
         case 'login':
             include_once 'painel/paginas/acesso/login.php';
