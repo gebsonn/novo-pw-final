@@ -1,4 +1,3 @@
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -38,7 +37,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="nome">Produto</label>
-                                        <input type="text" name="nome" au value="<?php echo $dado['nome']; ?>" class="form-control" id="nome">
+                                        <input type="text" name="nome" value="<?php echo $dado['nome']; ?>" class="form-control" id="nome">
                                     </div>
                                     <div class="form-group">
                                         <label for="tipo">Tipo produto</label>
@@ -46,7 +45,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="valor">Valor do produto em R$</label>
-                                        <input type="text" value="<?php echo str_replace('.', ',', $dado['valor']); ?>" name="valor" class="form-control" id="valor">
+                                        <input type="text" value="<?php echo $dado['valor']; ?>" name="valor" class="form-control" id="valor">
                                     </div>
                                     <input type="hidden" value="<?php echo $dado['id']; ?>" name="id">
                                 </div>
