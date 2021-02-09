@@ -1,1 +1,0 @@
-<a href="?pg=login">Área Administraativa</a>
