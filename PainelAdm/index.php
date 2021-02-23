@@ -12,7 +12,7 @@ if ($pg) {
         case 'inicio':
             include_once 'painel/paginas/includes/header.php';
             include_once 'painel/paginas/includes/menus.php';
-            include_once 'painel/paginas/dashboard.php';
+            include_once 'painel/paginas/paineladm.php';
             include_once 'painel/paginas/includes/footer.php';
             break;
 

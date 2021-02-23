@@ -1,6 +1,6 @@
 <?php
 $resultDados = new Conexao();
-$dados = $resultDados->selecionaDados('SELECT * FROM produtos');
+$dados = $resultDados->selecionaDados('SELECT * FROM produtos.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
